@@ -1,0 +1,83 @@
+<html> 
+<head> 
+<title> Arc90 JavaScript Test Q09 </title>
+<style>
+	body {
+	  background-color: white;
+	  color: blue;
+	  font-size: 16pt;
+	}
+	pre {
+	  color: black;
+	}
+	#my-list {
+	  width: 600px;
+	  text-align: left;
+	  font-size: 16pt;
+	  padding: 24pt;
+	  background-color: #E0E0E0;
+	  color: red;
+	}
+</style>
+</head>
+
+<body>
+<h1> Arc90 JavaScript Test Q09 </h1>
+
+<div id="Q09">
+<pre>
+/**
+ * 9. DOM
+ *     
+ *    How would you insert a 10000 &lt;li&gt; items into `my-list` 
+ *    in the given element above with vanilla JS? 
+ */
+</pre>
+</div>
+
+<div id="A09">
+
+<h2>Answer</h2>
+
+<pre>
+// le sigh -- http://davidwalsh.name/documentfragment
+// ... knew about fragment, but this link is too nice
+var numLI = 1000;
+var element;
+var li;
+var elem;
+var downToFrag = document.createDocumentFragment();
+for (elem = 0; elem < numLI; elem += 1) {
+    li = document.createElement("li");
+	li.innerHTML = "List item " + elem;
+	downToFrag.appendChild(li);
+}
+element = document.getElementById("my-list");
+element.appendChild(downToFrag);
+</pre>
+
+<p>Script results shown in shaded area...</p>
+
+<div id="my-list"></div>
+
+</div>
+
+<script>
+	// le sigh -- http://davidwalsh.name/documentfragment
+	// ... knew about fragment, but this link is too nice
+	var numLI = 1000;
+	var element;
+	var li;
+	var elem;
+	var downToFrag = document.createDocumentFragment();
+	for (elem = 0; elem < numLI; elem += 1) {
+		li = document.createElement("li");
+		li.innerHTML = "List item " + elem;
+		downToFrag.appendChild(li);
+	}
+	element = document.getElementById("my-list");
+	element.appendChild(downToFrag);
+</script>
+</body>
+
+</html>

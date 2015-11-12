@@ -1,0 +1,79 @@
+<html> 
+<head> 
+<title> Arc90 JavaScript Test Q00 </title>
+<style>
+	body {
+	  background-color: white;
+	  color: blue;
+	  font-size: 16pt;
+	}
+	pre {
+	  color: black;
+	}
+	#my-list {
+	  width: 600px;
+	  height: 400px;
+	  text-align: center;
+	  font-size: 24pt;
+	  padding: 24pt;
+	  background-color: #E0E0E0;
+	  color: red;
+	}
+</style>
+</head>
+
+<body>
+<h1> Arc90 JavaScript Test Q00 </h1>
+
+<div id="Q00">
+<pre>
+/**
+ * 0. Truthy
+ *
+ * Give the following:
+ * var s1 = new String("hello");
+ * var s2 = new String("hello");
+ *
+ * is s1 === s2; true or false
+ *
+ */
+</pre>
+</div>
+
+<div id="A00">
+
+<h2>Answer</h2>
+
+<pre>
+var element;
+var s1 = new String("hello");
+var s2 = new String("hello");
+element = document.getElementById("my-list");
+if (s1 === s2) {
+  element.innerHTML = "s1 === s2&lt;br\&gt; Yep!";
+} else {
+  element.innerHTML = "s1 === s2&lt;br\&gt; Nope!";
+}
+</pre>
+
+<p>Script results shown in shaded area...</p>
+
+<div id="my-list"></div>
+
+</div>
+
+<script>
+	// false -- different objects
+	var element;
+	var s1 = new String("hello");
+	var s2 = new String("hello");
+	element = document.getElementById("my-list");
+	if (s1 === s2) {
+	  element.innerHTML = "s1 === s2<br\> Yep!";
+	} else {
+	  element.innerHTML = "s1 === s2<br\> Nope!";
+	}
+</script>
+</body>
+
+</html>

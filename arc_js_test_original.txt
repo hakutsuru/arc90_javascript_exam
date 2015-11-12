@@ -1,0 +1,268 @@
+To: Darren 
+CC: Jeremy, Stephen, Clint
+Subject: JavaScript Test
+Date: 2015-03-31
+
+Darren:
+
+I have failed more JavaScript interviews than I care to remember.
+
+On a *good* day, you might get this done in an hour. It took me about 100 minutes, without time pressures muddling my brain.
+
+Yet there is good stuff here... I hope it allows you to get a sense of the skill of your candidates. Good luck.
+ 
+& Clint -- Damn you for sharing this >_<
+
+****
+
+/**
+ * 0. Truthy
+ * 
+ * Give the following:
+ * var s1 = new String("hello"); 
+ * var s2 = new String("hello"); 
+ *
+ * is s1 === s2; true or false
+ *
+ */
+
+
+// false -- different objects
+var element;
+var s1 = new String("hello"); 
+var s2 = new String("hello"); 
+if (s1 === s2) {
+  element = document.getElementById("my-list");
+  element.innerHTML = "equals!";
+}
+
+
+/**
+ *  1. Data
+ *
+ *  How would you make "10000" print as number 10000 ?
+ *
+ */
+
+
+// parseint is your friend
+var element = document.getElementById("my-list");
+element.innerHTML = parseInt("10000",10);
+
+
+/**
+ * 2. Create a function called commaDelineate that takes a string 
+ *    with spaces and returns it with commas separating the words.
+ *
+ *    Example: commaSeparate("All good men must die"); // All,good,men,must,die 
+ *
+ *    Bonus points: Can you make this a function of all strings such that
+ *    "All good men must die".commaSeparate() does the same thing?
+ *
+ */
+
+
+// oooh, joining
+var element;
+var commaSeparate = function(str) {
+    var werds = str.split(" ").join(",");
+    return werds;
+};
+gamingThrones = commaSeparate("All good men must die");
+element = document.getElementById("my-list");
+element.innerHTML = gamingThrones;
+
+
+/**
+ *  3. Iteration
+ *
+ *     Show how you might print the 
+ *     contents of a nested array like: 
+ *
+ *     var a = [["a", "b", "c"], 
+ *              ["d", "e", "f"], 
+ *              ["g", "h" ,"i"]];
+ *
+ *     Hint: There are several ways of doing this. 
+ *     
+ *     How might you make it work without a nested for loop?
+ *
+ */
+
+
+// pritty printing
+var element;
+var row,
+    col;
+var a = [["a", "b", "c"], ["d", "e", "f"], ["g", "h" ,"i"]];
+var matrix = "";
+for (row in a) {
+    if (a.hasOwnProperty(row)) { 
+        for (col in a[row]) {
+            if (col > 0) {
+                matrix = matrix + ", ";
+            }
+            matrix = matrix + a[row][col];
+        }
+    matrix = matrix + "<br/>";
+    }
+};
+element = document.getElementById("my-list");
+element.innerHTML = matrix;
+
+
+/**
+ *  4. Scope + Chaining
+ *
+ *     Write a small `Adder` class that 
+ *     accepts an initial starting value in its "constructor". It should have:
+ *
+ *     a.) An add function that is chainable. We should be able to make calls like:
+ *         var adder = Adder(1).add(2).add(3).log(); and logs 6. 
+ *
+ *     b.) A logger function, part of our class, that console logs the current 
+ *         value of the calculator.
+ *
+ */
+
+
+// (a) riddle me this construct
+var Adder = function(n) {
+    var state = n;
+    var log = function() {
+        return state;
+    };
+    var add = function(n) {
+        state += n;
+        return {log: log,
+                add: add}
+    };
+
+    return {
+        log: log,
+        add: add
+    };
+}
+var adder = Adder(1).add(2).add(3).log();
+var element = document.getElementById("my-list");
+element.innerHTML = adder;
+
+// (b) wtf? stoopid easy
+
+
+/**
+ * 5. Arguments
+ *
+ * Create a function that takes a variable amount of arguments and
+ * returns the sum of all the arguments, example:
+ *
+ * summer(1,2,3) // 6
+ * summer(1,2,3,4) // 10
+ *
+ */
+
+
+// dealing with array-like-argumentz
+var element;
+var summer = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return args.reduce(function(a, b) { return a + b; }, 0);
+}
+var slummerd = summer(1,2,3,4);
+element = document.getElementById("my-list");
+element.innerHTML = slummerd; // 10
+
+
+/** 
+ * 6. Write a function that invokes summer() on an array of numbers.
+ * 
+ */ 
+
+
+// apply ourselves
+var element;
+var summer = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return args.reduce(function(a, b) { return a + b; }, 0);
+}
+var arrayNumbers = [1, 2, 3, 8];
+var slummerd = summer.apply(this, arrayNumbers);
+element = document.getElementById("my-list");
+element.innerHTML = slummerd; // 14
+
+
+/**
+ * 7. Given the objects foo and bar and the function adder, 
+ * how would you increment the value of x without creating a function?
+ *
+ *  foo = {x : 1}
+ *  bar = {x : 2}
+ *  adder = function(n) { return this.x + n;}
+ */
+
+
+// call me applied
+var glib;
+var element;
+var foo = {x : 1};
+var bar = {x : 2};
+var adder = function(n) { return this.x + n;};
+glib = adder.call(foo, bar.x);
+element = document.getElementById("my-list");
+element.innerHTML = glib; // 3
+
+
+/**
+ * 7. Partial application
+ * 
+ * Given a function like the following:
+ *
+ * var adder = function(a, b) {
+ *   return a + b;
+ * }
+ *
+ * How would you create a new function from adder that always added
+ * 2 to the argument? example:
+ *
+ * add2(2) // 4
+ * add2(4) // 6
+ */
+
+
+// curry add2
+var element;
+var adder = function(a, b) {
+    return a + b;
+}
+var add2 = function (n) {
+    return adder(2, n);
+}
+element = document.getElementById("my-list");
+element.innerHTML = add2(8);
+
+
+/**
+ * 8. DOM
+ *     
+ *    How would you insert a 10000 <li> items into `my-list` 
+ *    in the given element above with vanilla JS? 
+ */
+
+
+// le sigh -- http://davidwalsh.name/documentfragment
+// ... knew about fragment, but this link is too nice
+var numLI = 1000;
+var element;
+var li;
+var elem;
+var downToFrag = document.createDocumentFragment();
+for (elem=0; elem<numLI; elem+=1) {
+    li = document.createElement("li");
+	li.innerHTML = "List item " + elem;
+	downToFrag.appendChild(li);
+}
+element = document.getElementById("my-list");
+element.appendChild(downToFrag);
+
+Sincerely,
+Sean Broderick

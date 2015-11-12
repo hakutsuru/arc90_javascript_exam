@@ -1,0 +1,107 @@
+<html> 
+<head> 
+<title> Arc90 JavaScript Test Q04 </title>
+<style>
+	body {
+	  background-color: white;
+	  color: blue;
+	  font-size: 16pt;
+	}
+	pre {
+	  color: black;
+	}
+	#my-list {
+	  width: 600px;
+	  height: 400px;
+	  text-align: center;
+	  font-size: 24pt;
+	  padding: 24pt;
+	  background-color: #E0E0E0;
+	  color: red;
+	}
+</style>
+</head>
+
+<body>
+<h1> Arc90 JavaScript Test Q04 </h1>
+
+<div id="Q04">
+<pre>
+/**
+ *  4. Scope + Chaining
+ *
+ *     Write a small `Adder` class that 
+ *     accepts an initial starting value in its "constructor". It should have:
+ *
+ *     a.) An add function that is chainable. We should be able to make calls like:
+ *         var adder = Adder(1).add(2).add(3).log(); and logs 6. 
+ *
+ *     b.) A logger function, part of our class, that console logs the current 
+ *         value of the calculator.
+ *
+ */
+</pre>
+</div>
+
+<div id="A04">
+
+<h2>Answer</h2>
+
+<pre>
+// (a) riddle me this construct
+var Adder = function(n) {
+    var state = n;
+    var log = function() {
+        return state;
+    };
+    var add = function(n) {
+        state += n;
+        return {log: log,
+                add: add}
+    };
+
+    return {
+        log: log,
+        add: add
+    };
+}
+var adder = Adder(1).add(2).add(3).log();
+var element = document.getElementById("my-list");
+element.innerHTML = adder;
+
+// (b) wtf? stoopid easy
+</pre>
+
+<p>Script results shown in shaded area...</p>
+
+<div id="my-list"></div>
+
+</div>
+
+<script>
+	// (a) riddle me this construct
+	var Adder = function(n) {
+		var state = n;
+		var log = function() {
+			return state;
+		};
+		var add = function(n) {
+			state += n;
+			return {log: log,
+					add: add}
+		};
+
+		return {
+			log: log,
+			add: add
+		};
+	}
+	var adder = Adder(1).add(2).add(3).log();
+	var element = document.getElementById("my-list");
+	element.innerHTML = adder;
+
+	// (b) wtf? stoopid easy
+</script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<html> 
+<head> 
+<title> Arc90 JavaScript Test Q08 </title>
+<style>
+	body {
+	  background-color: white;
+	  color: blue;
+	  font-size: 16pt;
+	}
+	pre {
+	  color: black;
+	}
+	#my-list {
+	  width: 600px;
+	  height: 400px;
+	  text-align: center;
+	  font-size: 24pt;
+	  padding: 24pt;
+	  background-color: #E0E0E0;
+	  color: red;
+	}
+</style>
+</head>
+
+<body>
+<h1> Arc90 JavaScript Test Q08 </h1>
+
+<div id="Q08">
+<pre>
+/**
+ * 8. Partial application
+ * 
+ * Given a function like the following:
+ *
+ * var adder = function(a, b) {
+ *   return a + b;
+ * }
+ *
+ * How would you create a new function from adder that always added
+ * 2 to the argument? example:
+ *
+ * add2(2) // 4
+ * add2(4) // 6
+ */
+</pre>
+</div>
+
+<div id="A08">
+
+<h2>Answer</h2>
+
+<pre>
+// curry add2
+var element;
+var adder = function(a, b) {
+    return a + b;
+}
+var add2 = function (n) {
+    return adder(2, n);
+}
+element = document.getElementById("my-list");
+element.innerHTML = add2(8); // 10
+</pre>
+
+<p>Script results shown in shaded area...</p>
+
+<div id="my-list"></div>
+
+</div>
+
+<script>
+	// curry add2
+	var element;
+	var adder = function(a, b) {
+		return a + b;
+	}
+	var add2 = function (n) {
+		return adder(2, n);
+	}
+	element = document.getElementById("my-list");
+	element.innerHTML = add2(8); // 10
+</script>
+</body>
+
+</html>

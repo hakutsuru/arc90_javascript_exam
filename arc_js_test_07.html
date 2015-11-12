@@ -1,0 +1,76 @@
+<html> 
+<head> 
+<title> Arc90 JavaScript Test Q07 </title>
+<style>
+	body {
+	  background-color: white;
+	  color: blue;
+	  font-size: 16pt;
+	}
+	pre {
+	  color: black;
+	}
+	#my-list {
+	  width: 600px;
+	  height: 400px;
+	  text-align: center;
+	  font-size: 24pt;
+	  padding: 24pt;
+	  background-color: #E0E0E0;
+	  color: red;
+	}
+</style>
+</head>
+
+<body>
+<h1> Arc90 JavaScript Test Q07 </h1>
+
+<div id="Q07">
+<pre>
+/**
+ * 7. Given the objects foo and bar and the function adder, 
+ * how would you increment the value of x without creating a function?
+ *
+ *  foo = {x : 1}
+ *  bar = {x : 2}
+ *  adder = function(n) { return this.x + n;}
+ */
+</pre>
+</div>
+
+<div id="A07">
+
+<h2>Answer</h2>
+
+<pre>
+// call me applied
+var glib;
+var element;
+var foo = {x : 1};
+var bar = {x : 2};
+var adder = function(n) { return this.x + n;};
+glib = adder.call(foo, bar.x);
+element = document.getElementById("my-list");
+element.innerHTML = glib; // 3
+</pre>
+
+<p>Script results shown in shaded area...</p>
+
+<div id="my-list"></div>
+
+</div>
+
+<script>
+	// call me applied
+	var glib;
+	var element;
+	var foo = {x : 1};
+	var bar = {x : 2};
+	var adder = function(n) { return this.x + n;};
+	glib = adder.call(foo, bar.x);
+	element = document.getElementById("my-list");
+	element.innerHTML = glib; // 3
+</script>
+</body>
+
+</html>

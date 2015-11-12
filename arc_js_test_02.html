@@ -1,0 +1,86 @@
+<html> 
+<head> 
+<title> Arc90 JavaScript Test Q02 </title>
+<style>
+	body {
+	  background-color: white;
+	  color: blue;
+	  font-size: 16pt;
+	}
+	pre {
+	  color: black;
+	}
+	#my-list {
+	  width: 600px;
+	  height: 400px;
+	  text-align: center;
+	  font-size: 24pt;
+	  padding: 24pt;
+	  background-color: #E0E0E0;
+	  color: red;
+	}
+	.pontifications {
+	  font-style: italic;
+	  width: 680px;
+	}
+</style>
+</head>
+
+<body>
+<h1> Arc90 JavaScript Test Q02 </h1>
+
+<div id="Q02">
+<pre>
+/**
+ * 2. Create a function called commaDelineate that takes a string 
+ *    with spaces and returns it with commas separating the words.
+ *
+ *    Example: commaSeparate("All good men must die"); // All,good,men,must,die 
+ *
+ *    Bonus points: Can you make this a function of all strings such that
+ *    "All good men must die".commaSeparate() does the same thing?
+ *
+ */
+</pre>
+</div>
+
+<div id="A02">
+
+<h2>Answer</h2>
+
+<pre>
+// oooh, joining
+var element;
+var commaSeparate = function(str) {
+    var werds = str.split(" ").join(",");
+    return werds;
+};
+gamingThrones = commaSeparate("All good men must die");
+element = document.getElementById("my-list");
+element.innerHTML = gamingThrones;
+</pre>
+
+<p class="pontifications">As you see, I punted on the bonus... Extending String.prototype takes
+   care, and could lead an oppressed hacker to rage tweet at you -- here
+   be dragons.</p>
+
+<p>Script results shown in shaded area...</p>
+
+<div id="my-list"></div>
+
+</div>
+
+<script>
+	// oooh, joining
+	var element;
+	var commaSeparate = function(str) {
+		var werds = str.split(" ").join(",");
+		return werds;
+	};
+	gamingThrones = commaSeparate("All good men must die");
+	element = document.getElementById("my-list");
+	element.innerHTML = gamingThrones;
+</script>
+</body>
+
+</html>

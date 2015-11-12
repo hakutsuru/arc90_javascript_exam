@@ -1,0 +1,74 @@
+<html> 
+<head> 
+<title> Arc90 JavaScript Test Q06 </title>
+<style>
+	body {
+	  background-color: white;
+	  color: blue;
+	  font-size: 16pt;
+	}
+	pre {
+	  color: black;
+	}
+	#my-list {
+	  width: 600px;
+	  height: 400px;
+	  text-align: center;
+	  font-size: 24pt;
+	  padding: 24pt;
+	  background-color: #E0E0E0;
+	  color: red;
+	}
+</style>
+</head>
+
+<body>
+<h1> Arc90 JavaScript Test Q06 </h1>
+
+<div id="Q06">
+<pre>
+/** 
+ * 6. Write a function that invokes summer() on an array of numbers.
+ * 
+ */ 
+</pre>
+</div>
+
+<div id="A06">
+
+<h2>Answer</h2>
+
+<pre>
+// apply ourselves
+var element;
+var summer = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return args.reduce(function(a, b) { return a + b; }, 0);
+}
+var arrayNumbers = [1, 2, 3, 8];
+var slummerd = summer.apply(this, arrayNumbers);
+element = document.getElementById("my-list");
+element.innerHTML = slummerd; // 14
+</pre>
+
+<p>Script results shown in shaded area...</p>
+
+<div id="my-list"></div>
+
+</div>
+
+<script>
+	// apply ourselves
+	var element;
+	var summer = function () {
+		var args = Array.prototype.slice.call(arguments);
+		return args.reduce(function(a, b) { return a + b; }, 0);
+	}
+	var arrayNumbers = [1, 2, 3, 8];
+	var slummerd = summer.apply(this, arrayNumbers);
+	element = document.getElementById("my-list");
+	element.innerHTML = slummerd; // 14
+</script>
+</body>
+
+</html>

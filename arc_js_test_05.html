@@ -1,0 +1,78 @@
+<html> 
+<head> 
+<title> Arc90 JavaScript Test Q05 </title>
+<style>
+	body {
+	  background-color: white;
+	  color: blue;
+	  font-size: 16pt;
+	}
+	pre {
+	  color: black;
+	}
+	#my-list {
+	  width: 600px;
+	  height: 400px;
+	  text-align: center;
+	  font-size: 24pt;
+	  padding: 24pt;
+	  background-color: #E0E0E0;
+	  color: red;
+	}
+</style>
+</head>
+
+<body>
+<h1> Arc90 JavaScript Test Q05 </h1>
+
+<div id="Q05">
+<pre>
+/**
+ * 5. Arguments
+ *
+ * Create a function that takes a variable amount of arguments and
+ * returns the sum of all the arguments, example:
+ *
+ * summer(1,2,3) // 6
+ * summer(1,2,3,4) // 10
+ *
+ */
+</pre>
+</div>
+
+<div id="A05">
+
+<h2>Answer</h2>
+
+<pre>
+// dealing with array-like-argumentz
+var element;
+var summer = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return args.reduce(function(a, b) { return a + b; }, 0);
+}
+var slummerd = summer(1,2,3,4);
+element = document.getElementById("my-list");
+element.innerHTML = slummerd; // 10
+</pre>
+
+<p>Script results shown in shaded area...</p>
+
+<div id="my-list"></div>
+
+</div>
+
+<script>
+	// dealing with array-like-argumentz
+	var element;
+	var summer = function () {
+		var args = Array.prototype.slice.call(arguments);
+		return args.reduce(function(a, b) { return a + b; }, 0);
+	}
+	var slummerd = summer(1,2,3,4);
+	element = document.getElementById("my-list");
+	element.innerHTML = slummerd; // 10
+</script>
+</body>
+
+</html>

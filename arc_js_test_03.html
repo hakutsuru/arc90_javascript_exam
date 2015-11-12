@@ -1,0 +1,111 @@
+<html> 
+<head> 
+<title> Arc90 JavaScript Test Q03 </title>
+<style>
+	body {
+	  background-color: white;
+	  color: blue;
+	  font-size: 16pt;
+	}
+	pre {
+	  color: black;
+	}
+	#my-list {
+	  width: 600px;
+	  height: 400px;
+	  text-align: center;
+	  font-size: 24pt;
+	  padding: 24pt;
+	  background-color: #E0E0E0;
+	  color: red;
+	}
+	.pontifications {
+	  font-style: italic;
+	  width: 680px;
+	}
+</style>
+</head>
+
+<body>
+<h1> Arc90 JavaScript Test Q03 </h1>
+
+<div id="Q03">
+<pre>
+/**
+ *  3. Iteration
+ *
+ *     Show how you might print the 
+ *     contents of a nested array like: 
+ *
+ *     var a = [["a", "b", "c"], 
+ *              ["d", "e", "f"], 
+ *              ["g", "h" ,"i"]];
+ *
+ *     Hint: There are several ways of doing this. 
+ *     
+ *     How might you make it work without a nested for loop?
+ *
+ */
+</pre>
+</div>
+
+<div id="A03">
+
+<h2>Answer</h2>
+
+<pre>
+// pritty printing
+var element;
+var row,
+    col;
+var a = [["a", "b", "c"], ["d", "e", "f"], ["g", "h" ,"i"]];
+var matrix = "";
+for (row in a) {
+    if (a.hasOwnProperty(row)) { 
+        for (col in a[row]) {
+            if (col > 0) {
+                matrix = matrix + ", ";
+            }
+            matrix = matrix + a[row][col];
+        }
+    matrix = matrix + "&lt;br/&gt;";
+    }
+};
+element = document.getElementById("my-list");
+element.innerHTML = matrix;
+</pre>
+
+<p class="pontifications">Punted on discussion, sigh. Any iteration or map operation would
+   still feel like nested looping, but I would probably convert the matrix into an array
+   of strings, then iterate over those for output.</p>
+
+<p>Script results shown in shaded area...</p>
+
+<div id="my-list"></div>
+
+</div>
+
+<script>
+	// pritty printing
+	var element;
+	var row,
+		col;
+	var a = [["a", "b", "c"], ["d", "e", "f"], ["g", "h" ,"i"]];
+	var matrix = "";
+	for (row in a) {
+		if (a.hasOwnProperty(row)) { 
+			for (col in a[row]) {
+				if (col > 0) {
+					matrix = matrix + ", ";
+				}
+				matrix = matrix + a[row][col];
+			}
+		matrix = matrix + "<br/>";
+		}
+	};
+	element = document.getElementById("my-list");
+	element.innerHTML = matrix;
+</script>
+</body>
+
+</html>
